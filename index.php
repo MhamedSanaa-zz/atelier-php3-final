@@ -38,10 +38,10 @@
                     <th>Phone</th>
                 </tr>
                 <?php
-                    include 'dbconnexion.php';
-                    $req = $dbstds->prepare('SELECT * FROM students');
-                    $req->execute();
-                    while($data = $req->fetch())
+                    include 'stds.class.php';
+                    $std= new stds;
+                    $liststds=$std->readstds();
+                    while($data = $liststds->fetch())
                     {
                         echo '<tr>';
                         echo '<td>'.$data['id'].'</td>';

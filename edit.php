@@ -11,12 +11,10 @@
 </head>
 <body>
     <?php
-    include 'dbconnexion.php';
-    $req=$dbstds->prepare('SELECT * FROM students where id= :param_id');
-    $req->bindParam(':param_id',$_GET['id']);
-    $req->execute();
+    include 'stds.class.php';
+    $std= new stds;
+    $req=$std->readonestd();
     $data=$req->fetch();
-
     ?>
     <div class="container">
         <fieldset>
